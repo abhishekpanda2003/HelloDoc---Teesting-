@@ -1,17 +1,34 @@
-# Node
+# ===============================
+# Node / React (Frontend)
+# ===============================
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Build outputs
+# Build output
 build/
 dist/
 
+# ===============================
 # Environment files
+# ===============================
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# OS files
+# ===============================
+# Backend (Java / Spring Boot)
+# ===============================
+target/
+*.log
+
+# ===============================
+# OS / Editor files
+# ===============================
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
