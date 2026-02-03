@@ -1,0 +1,71 @@
+/* =========================================================
+   SPECIALTY FILTER COMPONENT
+   Used by: SpecialtyFilter.jsx
+   ========================================================= */
+
+.specialty-navbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+/* Hide scrollbar for specialty filter */
+.specialty-navbar::-webkit-scrollbar {
+  height: 4px;
+}
+
+.specialty-navbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.specialty-btn {
+  padding: 8px 14px;
+  border: none;
+  background: #e6f4f8;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.specialty-btn:hover {
+  background: #d1ecf1;
+  transform: translateY(-2px);
+}
+
+.specialty-btn.active {
+  background: linear-gradient(180deg, #0aa3b5, #0284c7);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(10, 163, 181, 0.3);
+}
+
+/* =========================================================
+   RESPONSIVE STYLES
+   ========================================================= */
+@media (max-width: 768px) {
+  .specialty-navbar {
+    justify-content: flex-start;
+  }
+
+  .specialty-btn {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .specialty-navbar {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .specialty-btn {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+  }
+}

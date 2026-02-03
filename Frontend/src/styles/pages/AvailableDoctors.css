@@ -1,0 +1,149 @@
+/* =========================================================
+   AVAILABLE DOCTORS PAGE
+   Used by: AvailableDoctors.jsx
+   ========================================================= */
+
+/* =========================================================
+   AVAILABLE DOCTORS GRID
+   Used by: AvailableDoctors.jsx
+   ========================================================= */
+.doctor-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 10px 0;
+}
+
+/* =========================================================
+   DOCTOR CARD
+   Used by: DoctorCard.jsx
+   ========================================================= */
+.doctor-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  transition: 
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    filter 0.35s ease,
+    opacity 0.35s ease;
+  cursor: pointer;
+}
+
+.doctor-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.doctor-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.doctor-card p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.doctor-card button {
+  margin-top: 12px;
+  background: linear-gradient(180deg, #0aa3b5, #0284c7);
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.doctor-card button:hover {
+  background: linear-gradient(180deg, #0892a4, #0472b1);
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(10, 163, 181, 0.3);
+}
+
+/* =========================================================
+   DOCTOR CARD HOVER EFFECTS
+   Used by: AvailableDoctors.jsx
+   ========================================================= */
+
+/* Elevate hovered card */
+.doctor-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.18);
+  z-index: 2;
+}
+
+/* Blur and dim non-hovered cards */
+.doctor-list:has(.doctor-card:hover) .doctor-card:not(:hover) {
+  filter: blur(3px);
+  opacity: 0.6;
+  transform: scale(0.97);
+}
+
+/* =========================================================
+   RESPONSIVE STYLES
+   ========================================================= */
+@media (max-width: 1024px) {
+  .doctor-card img {
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .doctor-list {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .doctor-list {
+    grid-template-columns: 1fr;
+  }
+
+  .doctor-card img {
+    height: 150px;
+  }
+
+  .doctor-card h3 {
+    font-size: 1rem;
+  }
+
+  .doctor-card p {
+    font-size: 0.85rem;
+  }
+
+  .doctor-card button {
+    width: 100%;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (hover: none) {
+  .doctor-card:hover {
+    transform: none;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  }
+
+  .doctor-list:has(.doctor-card:hover) .doctor-card:not(:hover) {
+    filter: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .doctor-card button:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,175 @@
+/* =========================================================
+   DOCTOR DASHBOARD – SUMMARY CARDS
+   Used by: DoctorDashboard.jsx
+   ========================================================= */
+.dashboard-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.summary-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  transition: all 0.3s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+}
+
+.summary-card h3 {
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.summary-card .value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.summary-card.highlight {
+  background: linear-gradient(180deg, #0aa3b5, #0284c7);
+  color: #ffffff;
+}
+
+.summary-card.highlight h3 {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.summary-card.highlight .value {
+  color: #ffffff;
+}
+
+/* =========================================================
+   DASHBOARD GRID & CARDS
+   Used by: DoctorDashboard.jsx
+   ========================================================= */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.dashboard-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  transition: all 0.3s ease;
+}
+
+.dashboard-card:hover {
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12);
+}
+
+.dashboard-card-title {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+/* =========================================================
+   ACTIVITY LIST ITEMS
+   Used by: DoctorDashboard.jsx
+   ========================================================= */
+.activity-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid #e5eef3;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-item p {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.activity-item strong {
+  color: #0f172a;
+}
+
+/* =========================================================
+   DASHBOARD TABLES
+   Used by: DoctorDashboard.jsx
+   ========================================================= */
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.dashboard-table th,
+.dashboard-table td {
+  padding: 10px 0;
+  text-align: left;
+  border-bottom: 1px solid #e5eef3;
+}
+
+.dashboard-table th {
+  color: #64748b;
+  font-weight: 600;
+  background: #f8fbfd;
+  padding: 12px 0;
+}
+
+.dashboard-table tr:last-child td {
+  border-bottom: none;
+}
+
+.dashboard-table tr:hover {
+  background: #f8fbfd;
+}
+
+/* =========================================================
+   RESPONSIVE STYLES
+   ========================================================= */
+@media (max-width: 1024px) {
+  .dashboard-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-table {
+    font-size: 0.8rem;
+  }
+
+  .dashboard-table th,
+  .dashboard-table td {
+    padding: 8px 0;
+  }
+
+  .summary-card .value {
+    font-size: 1.5rem;
+  }
+}

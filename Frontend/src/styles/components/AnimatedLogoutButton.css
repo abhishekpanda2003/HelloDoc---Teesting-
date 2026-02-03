@@ -1,0 +1,300 @@
+/* =========================================================
+   ANIMATED LOGOUT BUTTON
+   Used by: AnimatedLogoutButton.jsx
+   ========================================================= */
+
+.logoutButton {
+  --figure-duration: 100;
+  --transform-figure: none;
+  --walking-duration: 100;
+  --transform-arm1: none;
+  --transform-wrist1: none;
+  --transform-arm2: none;
+  --transform-wrist2: none;
+  --transform-leg1: none;
+  --transform-calf1: none;
+  --transform-leg2: none;
+  --transform-calf2: none;
+  background: none;
+  border: 0;
+  color: #ffffff;
+  cursor: pointer;
+  display: block;
+  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  height: 40px;
+  outline: none;
+  padding: 0 16px 0 16px;
+  perspective: 100px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  max-width: 140px;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 0.2s ease;
+}
+
+.logoutButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.logoutButton::before {
+  background: linear-gradient(180deg, #0aa3b5, #0284c7);
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: none;
+  transition: transform 50ms ease, box-shadow 150ms ease;
+  width: 100%;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(10, 163, 181, 0.25);
+}
+
+.logoutButton:hover::before {
+  box-shadow: 0 6px 18px rgba(10, 163, 181, 0.35);
+}
+
+.logoutButton:hover .door {
+  transform: rotateY(20deg);
+}
+
+.logoutButton:active::before {
+  transform: scale(0.96);
+  box-shadow: 0 2px 8px rgba(10, 163, 181, 0.2);
+}
+
+.logoutButton:active .door {
+  transform: rotateY(28deg);
+}
+
+.logoutButton.clicked::before {
+  transform: none;
+}
+
+.logoutButton.clicked .door {
+  transform: rotateY(35deg);
+}
+
+.logoutButton.door-slammed .door {
+  transform: none;
+  transition: transform 100ms ease-in 250ms;
+}
+
+.logoutButton.falling {
+  animation: shake 200ms linear;
+}
+
+.logoutButton.falling .bang {
+  animation: flash 300ms linear;
+}
+
+.logoutButton.falling .figure {
+  animation: spin 1000ms infinite linear;
+  bottom: -1080px;
+  opacity: 0;
+  right: 1px;
+  transition:
+    transform calc(var(--figure-duration) * 1ms) linear,
+    bottom calc(var(--figure-duration) * 1ms) cubic-bezier(0.7, 0.1, 1, 1) 100ms,
+    opacity calc(var(--figure-duration) * 0.25ms) linear
+      calc(var(--figure-duration) * 0.75ms);
+  z-index: 1;
+}
+
+/* Light theme variant */
+.logoutButton--light::before {
+  background: linear-gradient(180deg, #0aa3b5, #0284c7);
+  box-shadow: 0 4px 12px rgba(10, 163, 181, 0.2);
+}
+
+.logoutButton--light:hover::before {
+  box-shadow: 0 6px 18px rgba(10, 163, 181, 0.3);
+}
+
+.logoutButton--light .button-text {
+  color: #ffffff;
+}
+
+.logoutButton--light .door,
+.logoutButton--light .doorway {
+  fill: #0f172a;
+}
+
+.button-text {
+  color: #ffffff;
+  font-weight: 600;
+  position: relative;
+  z-index: 10;
+}
+
+svg {
+  display: block;
+  position: absolute;
+}
+
+.figure {
+  bottom: 5px;
+  fill: #ffffff;
+  right: 18px;
+  transform: var(--transform-figure);
+  transition: transform calc(var(--figure-duration) * 1ms)
+    cubic-bezier(0.2, 0.1, 0.8, 0.9);
+  width: 28px;
+  z-index: 4;
+}
+
+.door,
+.doorway {
+  bottom: 4px;
+  fill: #ffffff;
+  right: 12px;
+  width: 30px;
+}
+
+.door {
+  transform: rotateY(20deg);
+  transform-origin: 100% 50%;
+  transform-style: preserve-3d;
+  transition: transform 200ms ease;
+  z-index: 5;
+}
+
+.door path {
+  fill: #0aa3b5;
+  stroke: #0284c7;
+  stroke-width: 3;
+}
+
+.doorway {
+  z-index: 3;
+}
+
+.bang {
+  opacity: 0;
+  fill: #ff6b6b;
+}
+
+.arm1,
+.wrist1,
+.arm2,
+.wrist2,
+.leg1,
+.calf1,
+.leg2,
+.calf2 {
+  transition: transform calc(var(--walking-duration) * 1ms) ease-in-out;
+}
+
+.arm1 {
+  transform: var(--transform-arm1);
+  transform-origin: 52% 45%;
+}
+
+.wrist1 {
+  transform: var(--transform-wrist1);
+  transform-origin: 59% 55%;
+}
+
+.arm2 {
+  transform: var(--transform-arm2);
+  transform-origin: 47% 43%;
+}
+
+.wrist2 {
+  transform: var(--transform-wrist2);
+  transform-origin: 35% 47%;
+}
+
+.leg1 {
+  transform: var(--transform-leg1);
+  transform-origin: 47% 64.5%;
+}
+
+.calf1 {
+  transform: var(--transform-calf1);
+  transform-origin: 55.5% 71.5%;
+}
+
+.leg2 {
+  transform: var(--transform-leg2);
+  transform-origin: 43% 63%;
+}
+
+.calf2 {
+  transform: var(--transform-calf2);
+  transform-origin: 41.5% 73%;
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+@keyframes spin {
+  from {
+    transform: rotate(0deg) scale(0.94);
+  }
+  to {
+    transform: rotate(359deg) scale(0.94);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(-1deg);
+  }
+}
+
+@keyframes flash {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE STYLES
+   ========================================================= */
+@media (max-width: 768px) {
+  .logoutButton {
+    width: 100%;
+    height: 45px;
+    padding: 0 12px;
+    font-size: 13px;
+  }
+
+  .figure {
+    width: 24px;
+    right: 14px;
+    bottom: 8px;
+  }
+
+  .door,
+  .doorway {
+    width: 26px;
+    right: 10px;
+    bottom: 6px;
+  }
+
+  .button-text {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoutButton {
+    max-width: none;
+  }
+}
